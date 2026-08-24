@@ -136,26 +136,20 @@ Returns transaction history from the local SQLite database.
 ### GET /api/statistics
 Returns total and risk-based summary statistics.
 
-## 16. Screenshots
-
-Add screenshots from your local demo environment to illustrate the dashboard, risk panel, and transaction history.
-
-## 17. Future Improvements
+## 16. Future Improvements
 
 - Add more adaptive fraud models and behavior-based rules
 - Improve detection with device fingerprints and IP analysis
 - Add user authentication and multi-step approvals
 - Connect to a production AI provider with safe fallback logic
 
-## 18. Security Considerations
+## 17. Security Considerations
 
 This project is a demo and should not be treated as production-grade banking fraud detection. It validates incoming requests, avoids frontend trust in risk scores, keeps secrets in environment variables, and avoids storing card details.
 
-## 19. Disclaimer
+## 18. Disclaimer
 
 FraudShield is designed for a hackathon prototype and educational demonstration. It does not provide real financial-grade fraud prevention or legal compliance guarantees.
-
-## 20. Team
 
 - FraudShield Team
 - Razorpay Buildathon 2026
