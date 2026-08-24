@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FraudShield | AI-Powered Payment Security</title>
+    <meta
+      name="description"
+      content="FraudShield is an AI-powered payment security platform that analyzes payment risk before funds move."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-icon">🛡️</div>
+          <div>
+            <div class="brand-name">FraudShield</div>
+            <div class="brand-tag">AI-Powered Payment Security</div>
+          </div>
+        </div>
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          Secure
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Real-time risk intelligence</p>
+            <h1>Secure Every Payment Before You Pay</h1>
+            <p class="hero-subtitle">
+              AI-powered fraud detection that analyzes your transaction before money moves.
+            </p>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-label">Live protection</div>
+            <div class="stat-value">99.2%</div>
+            <div class="stat-meta">Alert coverage</div>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <div class="panel form-panel">
+            <div class="panel-header">
+              <h2>Payment Analysis</h2>
+            </div>
+
+            <form id="analysisForm" class="analysis-form">
+              <div class="form-grid">
+                <label>
+                  <span>Amount</span>
+                  <input id="amount" name="amount" type="number" min="1" step="1" placeholder="5000" required />
+                </label>
+
+                <label>
+                  <span>Recipient name</span>
+                  <input id="recipient" name="recipient" type="text" placeholder="Rahul" required />
+                </label>
+
+                <label>
+                  <span>Recipient status</span>
+                  <select id="recipientStatus" name="recipientStatus">
+                    <option value="known">Known recipient</option>
+                    <option value="new">New recipient</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>Payment method</span>
+                  <select id="paymentMethod" name="paymentMethod">
+                    <option value="UPI">UPI</option>
+                    <option value="card">Card</option>
+                    <option value="net banking">Net Banking</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>Transaction frequency</span>
+                  <select id="transactionFrequency" name="transactionFrequency">
+                    <option value="normal">Normal</option>
+                    <option value="frequent">Frequent</option>
+                    <option value="very frequent">Very frequent</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>Device status</span>
+                  <select id="deviceStatus" name="deviceStatus">
+                    <option value="known">Known device</option>
+                    <option value="new">New device</option>
+                  </select>
+                </label>
+
+                <label>
+                  <span>Location status</span>
+                  <select id="locationStatus" name="locationStatus">
+                    <option value="normal">Normal location</option>
+                    <option value="unusual">Unusual location</option>
+                  </select>
+                </label>
+              </div>
+
+              <button id="analyzeBtn" type="submit" class="primary-btn">🔍 Analyze Payment</button>
+            </form>
+          </div>
+
+          <div class="panel result-panel">
+            <div id="resultState" class="result-state empty-state">
+              <div class="empty-icon">🧠</div>
+              <h3>No analysis yet</h3>
+              <p>Submit a payment to see a pre-transaction risk assessment.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="metrics">
+          <div class="metric-card">
+            <span>Total Transactions</span>
+            <strong id="totalTransactions">0</strong>
+          </div>
+          <div class="metric-card safe">
+            <span>Safe Transactions</span>
+            <strong id="safeTransactions">0</strong>
+          </div>
+          <div class="metric-card flagged">
+            <span>Flagged Transactions</span>
+            <strong id="flaggedTransactions">0</strong>
+          </div>
+          <div class="metric-card blocked">
+            <span>Blocked Transactions</span>
+            <strong id="blockedTransactions">0</strong>
+          </div>
+        </section>
+
+        <section class="panel history-panel">
+          <div class="panel-header history-header">
+            <h2>Transaction History</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Recipient</th>
+                  <th>Amount</th>
+                  <th>Risk</th>
+                  <th>Level</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="transactionTableBody">
+                <tr>
+                  <td colspan="7" class="empty-row">No transactions yet.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="verificationModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-card">
+        <button type="button" class="close-btn" id="closeModalBtn">✕</button>
+        <h3>Demo Verification</h3>
+        <p>
+          This is a demo verification step for medium-risk transactions only. It is not a real banking-grade authentication mechanism.
+        </p>
+        <label>
+          <span>Enter recipient to confirm</span>
+          <input id="verificationRecipient" type="text" placeholder="Rahul" />
+        </label>
+        <label>
+          <span>Confirm amount</span>
+          <input id="verificationAmount" type="number" min="1" placeholder="5000" />
+        </label>
+        <button id="verifyBtn" class="primary-btn" type="button">Verify Transaction</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
