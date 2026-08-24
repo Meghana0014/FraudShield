@@ -151,9 +151,4 @@ This project is a demo and should not be treated as production-grade banking fra
 
 FraudShield is designed for a hackathon prototype and educational demonstration. It does not provide real financial-grade fraud prevention or legal compliance guarantees.
 
-- FraudShield Team
-- Razorpay Buildathon 2026
-
----
-
 This project uses Razorpay in Test Mode for demonstration only.
